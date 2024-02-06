@@ -1,4 +1,4 @@
-<h1>Commands to aplication</h1>
+<h1>Commands to application</h1>
 
 <p>express project-name --view=pug
 
