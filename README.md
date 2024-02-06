@@ -1,9 +1,10 @@
 <h1>Commands to application</h1>
 
-<p>express project-name --view=pug
+<p>
+1 -> express project-name --view=pug
 
-npm install
+2 -> npm install
 
-npm install --save-dev nodemon
+3 -> npm install --save-dev nodemon
 
-npm run devstart</p>
+4 -> npm run devstart</p>
