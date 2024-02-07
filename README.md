@@ -5,4 +5,5 @@
 <li>npm install</li>
 <li>npm install --save-dev nodemon</li>
 <li>npm run devstart</li>
+<li>npm install pug</li>
 </ul>
