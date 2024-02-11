@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require('mongoose');
+
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
@@ -12,6 +14,11 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+//setup up mongoose
+mongoose.connect('mongodb+srv://franciscopereiraestiva:lshbjlsUjbaj0kDs@cluster0.ig5jb7x.mongodb.net/');
+mongoose.Promise = global.Promise;
+mongoose.connection.on('error', (error) => console.log(error.mensage) );
 
 app.use(logger('dev'));
 app.use(express.json());

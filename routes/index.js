@@ -9,4 +9,7 @@ router.get('/', hotelController.homePage);
 
 router.get('/all', hotelController.listAllHotels);
 
+// router.get('sig-up', hotelController.signUp, hotelController.logIn);
+// router.get('log-in', hotelController.logIn);
+
 module.exports = router;
