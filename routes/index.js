@@ -12,6 +12,7 @@ router.get('/all', hotelController.listAllHotels);
 //ADMIN Routes
 router.get('/admin', hotelController.adminPage);
 router.get('/admin/add', hotelController.createHotelGet);
+router.post('/admin/add', hotelController.createHotelPost);
 
 // router.get('sig-up', hotelController.signUp, hotelController.logIn);
 // router.get('log-in', hotelController.logIn);

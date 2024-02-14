@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //setup up mongoose
-mongoose.connect('mongodb+srv://franciscopereiraestiva:lshbjlsUjbaj0kDs@cluster0.ig5jb7x.mongodb.net/');
+mongoose.connect('mongodb+srv://lets_travel_admin:extrema@cluster0.ig5jb7x.mongodb.net/');
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (error) => console.log(error.mensage) );
 

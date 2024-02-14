@@ -1,3 +1,5 @@
+const Hotel = require('../models/hotel');
+
 exports.homePage = (req, res) => {
     res.render('index', { title: 'Lets travel' });
 }
@@ -14,6 +16,10 @@ exports.createHotelGet = (req, res) => {
     res.render('add_hotel', {title: 'Add new hotel'});
 }
 
+exports.createHotelPost = async (req, res) => {
+    const hotel = new Hotel(req.body);
+    await hotel.save();
+}
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
 //     console.log('siggn up middleware')
