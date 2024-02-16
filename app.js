@@ -16,9 +16,23 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //setup up mongoose
-mongoose.connect('mongodb+srv://francis:1234@cluster0.ig5jb7x.mongodb.net/');
-mongoose.Promise = global.Promise;
-mongoose.connection.on('error', (error) => console.log(error.mensage) );
+const uri= "mongodb+srv://francis:1234@cluster0.ig5jb7x.mongodb.net/"
+
+async function connect(){
+  try{
+    await mongoose.connect(uri);
+    console.log("Connected to MongoDB");
+  }catch (error){
+    console.error(error);
+  }
+}
+
+connect();
+
+
+// mongoose.connect('mongodb+srv://francis:1234@cluster0.ig5jb7x.mongodb.net/');
+// mongoose.Promise = global.Promise;
+// mongoose.connection.on('error', (error) => console.log(error.mensage) );
 
 app.use(logger('dev'));
 app.use(express.json());
