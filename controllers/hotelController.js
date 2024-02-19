@@ -12,13 +12,18 @@ exports.adminPage = (req, res) => {
     res.render('admin', {title: 'Admin' });
 }
 
-exports.createHotelGet = (req, res) => {
+exports.createHotelGet = (req, res, next) => {
     res.render('add_hotel', {title: 'Add new hotel'});
 }
 
 exports.createHotelPost = async (req, res) => {
-    const hotel = new Hotel(req.body);
-    await hotel.save();
+    try{
+        const hotel = new Hotel(req.body);
+        await hotel.save();
+        res.redirect(`/all/${hotel._id}`);
+    }catch(error){
+        next(error);
+    }    
 }
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
