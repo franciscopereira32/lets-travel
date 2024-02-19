@@ -16,7 +16,7 @@ exports.createHotelGet = (req, res, next) => {
     res.render('add_hotel', {title: 'Add new hotel'});
 }
 
-exports.createHotelPost = async (req, res) => {
+exports.createHotelPost = async (req, res, next) => {
     try{
         const hotel = new Hotel(req.body);
         await hotel.save();
