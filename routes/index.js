@@ -8,7 +8,7 @@ const hotelController = require('../controllers/hotelController');
 router.get('/', hotelController.homePage);
 
 router.get('/all', hotelController.listAllHotels);
-
+router.get('/countries', hotelController.listAllCountries);
 //ADMIN Routes
 router.get('/admin', hotelController.adminPage);
 router.get('/admin/add', hotelController.createHotelGet);
