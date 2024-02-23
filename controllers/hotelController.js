@@ -1,8 +1,8 @@
 const Hotel = require('../models/hotel');
 
-exports.homePage = (req, res) => {
-    res.render('index', { title: 'Lets travel' });
-}
+// exports.homePage = (req, res) => {
+//     res.render('index', { title: 'Lets travel' });
+// }
 
 exports.listAllHotels = async (req, res, next) => {
     try{
@@ -19,6 +19,23 @@ exports.listAllCountries = async (req, res, next) => {
         const allCountries = await Hotel.distinct('country');
         res.render('all_countries', {title: 'Browse by country', allCountries});
     }catch(error) {
+        next(error)
+    }
+}
+
+exports.homePageFilters = async (req, res, next) => {
+    try{
+        const hotels = await Hotel.aggregate([
+            { $match: { available: true } },
+            { $match: { size: 9 } }
+        ]);
+        const countries = await Hotel.aggregate([
+            { $group: { _id: '$country' } },
+            { $sample: { size: 9 } }
+        ]);
+        res.render('index', { countries, hotels });
+        //res.json(countries)
+    }catch(error){
         next(error)
     }
 }
