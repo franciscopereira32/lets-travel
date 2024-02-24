@@ -58,6 +58,10 @@ exports.createHotelPost = async (req, res, next) => {
         next(error);
     }    
 }
+
+exports.editRemoveGet = (req, res) => {
+    res.render('edit_remove', { title: 'Search for hotel to edit or remove'});
+}
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
 //     console.log('siggn up middleware')
