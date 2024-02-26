@@ -88,6 +88,15 @@ exports.editRemovePost = async (req, res, next) => {
         next(next)
     }
 }
+
+exports.updateHotelGet = async (req, res, next) => {
+    try{
+        const hotel = await Hotel.findOne({ _id: req.params.hotelId });
+        res.render('add_hotel', {title: 'Update hotel', hotel});
+    } catch(error){
+        next(error)
+    }
+}
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
 //     console.log('siggn up middleware')
