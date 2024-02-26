@@ -16,6 +16,7 @@ router.post('/admin/add', hotelController.createHotelPost);
 router.get('/admin/edit-remove', hotelController.editRemoveGet);
 router.post('/admin/edit-remove', hotelController.editRemovePost);
 router.get('/admin/:hotelId/update', hotelController.updateHotelGet);
+router.post('/admin/:hotelId/update', hotelController.updateHotelPost);
 
 // router.get('sig-up', hotelController.signUp, hotelController.logIn);
 // router.get('log-in', hotelController.logIn);

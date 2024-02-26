@@ -97,6 +97,15 @@ exports.updateHotelGet = async (req, res, next) => {
         next(error)
     }
 }
+exports.updateHotelPost = async(req, res, next) => {
+    try{
+        const hotelId = req.params.hotelId;
+        const hotel = await Hotel.findByIdAndUpdate(hotelId, req.body, {new:true});
+        res.redirect(`/all/${hotelId}`)
+    } catch(error){
+        next(error)
+    }
+}
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
 //     console.log('siggn up middleware')
