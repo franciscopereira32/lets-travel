@@ -1,5 +1,6 @@
 const { title } = require('process');
 const Hotel = require('../models/hotel');
+const next = require('single/lib/next');
 
 // exports.homePage = (req, res) => {
 //     res.render('index', { title: 'Lets travel' });
@@ -103,6 +104,27 @@ exports.updateHotelPost = async(req, res, next) => {
         const hotel = await Hotel.findByIdAndUpdate(hotelId, req.body, {new:true});
         res.redirect(`/all/${hotelId}`)
     } catch(error){
+        next(error)
+    }
+}
+
+exports.deleteHotelGet = async (req, res, next) => {
+    try{
+        const hotelId = req.params.hotelId;
+        const hotel = await Hotel.findOne( { _id: hotelId } )
+        res.render('add_hotel', {title:"Delete hotel", hotel });
+    }catch(error){
+        next(error)
+    }
+    
+}
+
+exports.deleteHotelPost = async (req, res, next) => {
+    try{
+        const hotelId = req.params.hotelId;
+        const hotel = await Hotel.findByIdAndDelete({ _id: hotelId });
+        res.redirect('/')
+    }catch(error){
         next(error)
     }
 }
