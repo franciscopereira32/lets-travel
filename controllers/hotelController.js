@@ -128,6 +128,16 @@ exports.deleteHotelPost = async (req, res, next) => {
         next(error)
     }
 }
+
+exports.hotelDetail = async (req, res, next) => {
+    try{
+        const hotelParam = req.params.hotel;
+        const hotelData = await Hotel.find( {_id: hotelParam} );
+        res.render('hotel_detail', { title: 'Lets Travel', hotelData });
+    }catch(error){
+        next(error)
+    }
+}
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
 //     console.log('siggn up middleware')
