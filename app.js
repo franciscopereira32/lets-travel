@@ -15,6 +15,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use((req, res, next) => {
+  res.locals.url = req.path
+  next();
+});
+
 //setup up mongoose
 const uri= "mongodb+srv://francis:1234@cluster0.ig5jb7x.mongodb.net/"
 
