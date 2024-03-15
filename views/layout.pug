@@ -13,21 +13,21 @@ html
             a(href="/sign-up") sign up 
           li 
             a(href="/login") Login
-
+      
       .search_nav 
         form
-         .input_wrapper 
-          label(for="destination") Destination 
-          input(type='text' id="destination" name="destination" required)
+          .input_wrapper         
+            label(for="destination") Destination 
+            input(type='text' id="destination" name="destination" required)
           .input_wrapper 
-          label(for="destination") Duration (nights)
-          input(type='text' id="nights" name="nights" required)  
+            label(for="destination") Duration (nights)
+            input(type='text' id="nights" name="nights" required)  
           .input_wrapper 
-          label(for="destination") Departure Date
-          input(type='date' id="departure-date" name="dateOfDeparture" required)   
+            label(for="destination") Departure Date
+            input(type='date' id="departure-date" name="dateOfDeparture" required)   
           .input_wrapper 
-          label(for="destination") Number of guests 
-          input(type='number' id="number-guests" name="numberGuests" required) 
+            label(for="destination") Number of guests 
+            input(type='number' id="number-guests" name="numberGuests" required) 
 
           .input_wrapper 
             select(name="stars")   
@@ -42,8 +42,8 @@ html
               option(value="1") Price: Low -High
               Option(value="-1") Price: Hight - Low
 
-            .input_wrapper 
-              button(type="submit") Search
+          .input_wrapper 
+            button(type="submit") Search!
 
       img(src="/images/beach.jpg")    
           
