@@ -114,6 +114,8 @@ textarea {
 }
 
 @media (min-width: 1000px) {
+
+
   nav {
     flex-direction: row;
   }
@@ -141,12 +143,12 @@ textarea {
     max-width: 170px;
     text-align: left;
   }
-
+  
   .outer_wrapper {
     text-align: left;
   }
-
-  .hotel_wrapper .hotel {
+  
+  .hotel_wrapper .hotel{
     display: flex;
   }
 
@@ -158,6 +160,11 @@ textarea {
   .hotel_info {
     flex: 1;
     padding: 0 1em;
+    text-align: left;
+  }
+
+  .hotel_order_details {
+    text-align: left;
   }
 
   .country_wrapper ul {
@@ -166,4 +173,5 @@ textarea {
     grid-gap: 20px;
     text-align: center;
   }
+
 }
