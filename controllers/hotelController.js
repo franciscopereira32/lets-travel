@@ -29,7 +29,7 @@ exports.homePageFilters = async (req, res, next) => {
     try{
         const hotels = await Hotel.aggregate([
             { $match: { available: true } },
-            { $match: { size: 9 } }
+            { $sample: { size: 9 } }
         ]);
         const countries = await Hotel.aggregate([
             { $group: { _id: '$country' } },
