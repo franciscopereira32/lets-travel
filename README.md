@@ -9,5 +9,4 @@
 <li>npm i mongoose</li>
 </ul>
 
-mongo username: franciscopereiraestiva
-mongo password: lshbjlsUjbaj0kDs
+
