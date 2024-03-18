@@ -27,6 +27,7 @@ exports.listAllCountries = async (req, res, next) => {
 
 exports.homePageFilters = async (req, res, next) => {
     try{
+        console.log(process.env.DB)
         const hotels = Hotel.aggregate([
             { $match: { available: true } },
             { $sample: { size: 9 } }
