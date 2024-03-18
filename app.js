@@ -1,3 +1,4 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -21,11 +22,10 @@ app.use((req, res, next) => {
 });
 
 //setup up mongoose
-const uri= "mongodb+srv://francis:1234@cluster0.ig5jb7x.mongodb.net/"
 
 async function connect(){
   try{
-    await mongoose.connect(uri);
+    await mongoose.connect(process.env.DB);
     console.log("Connected to MongoDB");
   }catch (error){
     console.error(error);
