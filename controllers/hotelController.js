@@ -1,6 +1,36 @@
 const { title } = require('process');
 const Hotel = require('../models/hotel');
 const next = require('single/lib/next');
+const cloudinary = require('cloudinary');
+const multer = require('multer');
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
+
+const storage = multer.diskStorage({});
+
+const upload = multer({ storage });
+
+exports.upload = upload.single('image');
+
+exports.pushToCloudinary = (req, res, next) => {
+    if(req.file) {
+        cloudinary.uploader.upload(req.file.path)
+        .then((result)=> {
+            req.body.image = result.public_id;
+            next();
+        })
+        .catch(() => {
+            res.redirect('/admin/add');
+        })
+    }else{
+        next();
+    }
+}
 
 // exports.homePage = (req, res) => {
 //     res.render('index', { title: 'Lets travel' });
