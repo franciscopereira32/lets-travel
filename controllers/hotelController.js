@@ -185,6 +185,18 @@ exports.hotelsByCountry = async (req, res, next) => {
         next(error)
     }
 }
+
+exports.searchResults = async(req, res, next) => {
+    try{
+        const searchQuery = req.body;
+        const searchData = await Hotel.aggregate([
+            { $match: { $text: { $search: `"${searchQuery.destination}\"` }}}
+        ])
+        res.json(searchData)
+    } catch(error){
+        next(error)
+    }
+}
 // exports.signUp = (req, res, next) => {
 //     //validate userinfo
 //     console.log('siggn up middleware')
