@@ -197,7 +197,7 @@ exports.searchResults = async(req, res, next) => {
                  star_rating: {$gte: parsedStars} }},
             { $sort: { cost_per_night: parsedSort }}
         ]);
-        //res.json(searchData)
+        //res.json(searchQuery)
         res.render('search_results', {title: 'search results', searchQuery, searchData });
         
     } catch(error){
