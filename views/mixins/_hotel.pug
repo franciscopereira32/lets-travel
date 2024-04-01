@@ -23,4 +23,5 @@ mixin hotel(hotel, searchQuery)
             - const costEach = searchQuery.duration * hotel.cost_per_night 
             - const totalCost = costEach * searchQuery.numberOfGuests 
             p= `Total per night $ ${costEach}`
-            hrh3= `Total cost: $ ${totalCost}`          
+            hr
+            h3= `Total cost: $ ${totalCost}`          
