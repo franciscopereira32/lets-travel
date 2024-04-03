@@ -16,6 +16,26 @@ mixin hotel(hotel, searchQuery)
           p= `Country: ${hotel.country}` 
           p= `Cost per night: $ ${hotel.cost_per_night}`
 
+          if url.startsWith('/all/')
+            hrh3 Search for this hotel
+            .search_nav 
+              form(action="/results" method="POST")
+                .input_wrapper         
+                  label(for="destination") Destination 
+                  input(type='text' id="destination" name="destination" value=hotel.hotel_hotel_name)
+                .input_wrapper 
+                  label(for="destination") Duration (nights)
+                  input(type='text' id="nights" name="nights" required)  
+                .input_wrapper 
+                  label(for="destination") Departure Date
+                  input(type='date' id="departure-date" name="dateOfDeparture" required)   
+                .input_wrapper 
+                  label(for="destination") Number of guests 
+                  input(type='number' id="number-guests" name="numberGuests" required) 
+
+                .input_wrapper 
+                  button(type="submit") Search!
+
         if url === '/results'
           .hotel_order_details 
             p= `Number of nights: ${searchQuery.nights}`
