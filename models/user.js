@@ -1,7 +1,7 @@
-const mongoose = require('mongose');
+const mongoose = require('mongoose');
 const { type } = require('os');
 
-const userSchema = new mongoose.userSchema({
+const userSchema = new mongoose.Schema({
     first_name: {
         type: String,
         required: 'First name is required',
