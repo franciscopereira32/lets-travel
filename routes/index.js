@@ -37,5 +37,6 @@ router.post('/admin/:hotelId/delete', hotelController.deleteHotelPost);
 //USER ROUTES
 
 router.get('/sign-up', userController.signUpGet);
+router.post('sign_up', userController.signUpPost);
 
 module.exports = router;
