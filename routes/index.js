@@ -3,6 +3,7 @@ var router = express.Router();
 
 //require controllers
 const hotelController = require('../controllers/hotelController');
+const userController = require('../controllers/userController')
 
 /* GET home page. */
 router.get('/', hotelController.homePageFilters);
@@ -31,5 +32,11 @@ router.post('/admin/:hotelId/delete', hotelController.deleteHotelPost);
 
 // router.get('sig-up', hotelController.signUp, hotelController.logIn);
 // router.get('log-in', hotelController.logIn);
+
+
+//USER ROUTES
+
+router.get('/sign-up', userController.signUpGet);
+router.post('sign_up', userController.signUpPost);
 
 module.exports = router;
