@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
 //express validator
+const express = require('express');
 const { check, validationResult } = require('express-validator');
 const { sanitize } = require('express-validator');
 const next = require('single/lib/next');
