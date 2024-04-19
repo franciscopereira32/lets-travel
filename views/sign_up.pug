@@ -4,4 +4,7 @@ block content
 
     h2= title 
     hr
+    if errors 
+        for errors in errors 
+            li= error.msg
     +userForm()
