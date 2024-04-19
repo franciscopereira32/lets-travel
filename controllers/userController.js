@@ -30,12 +30,15 @@ exports.signUpPost = [
     .custom(( value, { req } ) => value === req.body.password)
     .withMessage('Passwords do not match'),
 
+    //sanitize('*').trim().escape(),
+
     (req, res, next) => {
         const errors = validationResult(req);
 
         if(!errors.isEmpty()) {
             //There are errors
-            res.render('sign_up', {title: 'Please fix the following errors:'});
+            res.json(res.body)
+            //res.render('sign_up', {title: 'Please fix the following errors:', errors: errors.array()});
 
         }else {
             //no errors
